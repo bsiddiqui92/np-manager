@@ -1,0 +1,12 @@
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\shared\dto\UserDTO.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\ui\model\response\UserProfileRest.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\service\UsersService.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\ui\entrypoints\UsersEntryPoint.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\App.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\service\impl\UsersServiceImpl.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\ui\model\response\ErrorMessage.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\ui\model\request\CreateUserRequestModel.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\ui\model\response\ErrorMessages.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\utils\UserProfileUtils.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\exceptions\MissingRequiredFieldException.java
+C:\Users\Bilal Siddiqui\Documents\Projects\npmanager\src\main\java\com\apps\developerblog\app\ws\exceptions\MissingRequiredFieldExceptionMapper.java
