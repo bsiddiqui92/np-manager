@@ -30,5 +30,5 @@ public interface UserDao {
      * Create new user
      * @return
      */
-    UserDTO createUser(); 
+    UserDTO createUser(UserDTO user);
 }

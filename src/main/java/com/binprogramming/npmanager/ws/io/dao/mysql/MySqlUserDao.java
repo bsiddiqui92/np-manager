@@ -8,22 +8,98 @@ package com.binprogramming.npmanager.ws.io.dao.mysql;
 import com.binprogramming.npmanager.ws.io.dao.UserDao;
 import com.binprogramming.npmanager.ws.shared.dto.UserDTO;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 /**
  *
  * @author Bilal Siddiqui
  */
-public class MySqlUserDao implements UserDao {
+public class MySqlUserDao extends MySqlDao implements UserDao {
     
     public UserDTO getUserByName(String userName) {
-        return new UserDTO(); 
+
+        UserDTO user = null;
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+
+            this.conn = this.getDatabaseConnection(DATA_SOURCE_NAME);
+
+            String query = "SELECT * FROM users WHERE userName = ?";
+
+            stmt = this.conn.prepareStatement(query);
+            stmt.setString(1, userName);
+            rs = stmt.executeQuery();
+
+            if (rs != null && rs.next()) {
+                user = new UserDTO();
+                user.setId(rs.getInt("id"));
+                user.setUserName(rs.getString("userName"));
+                user.setFirstName(rs.getString("firstName"));
+                user.setLastName(rs.getString("lastName"));
+                user.setEmail(rs.getString("email"));
+                user.setSalt(rs.getString("salt"));
+                user.setEncryptedPassword(rs.getString("encryptedPassword"));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            releaseRsStatementConnection(rs, stmt);
+        }
+
+        return user;
     }
     
     public UserDTO getAllUsers() {
         return new UserDTO(); 
     }
     
-    public UserDTO createUser() {
-        return new UserDTO(); 
+    public UserDTO createUser(UserDTO user) {
+        // Record data in db
+        PreparedStatement stmt = null;
+        try {
+
+
+            this.conn = this.getDatabaseConnection("npm");
+
+            String query = "INSERT INTO users (" +
+                    "userName," +
+                    "firstName," +
+                    "lastName," +
+                    "email," +
+                    "salt," +
+                    "encryptedPassword," +
+                    "userId" +
+                    ") VALUES (?,?,?,?,?,?,?)";
+
+            stmt = this.conn.prepareStatement(query);
+
+            int j = 0;
+
+            stmt.setString(++j, user.getUserName());
+            stmt.setString(++j, user.getFirstName());
+            stmt.setString(++j, user.getLastName());
+            stmt.setString(++j, user.getEmail());
+            stmt.setString(++j, user.getSalt());
+            stmt.setString(++j, user.getEncryptedPassword());
+            stmt.setString(++j, user.getUserId());
+
+            stmt.execute();
+
+            int id = this.getSequence();
+            user.setId(id);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            this.releaseRsStatementConnection(null, stmt);
+        }
+
+        return new UserDTO();
     }
     
 }
