@@ -1,6 +1,6 @@
 **/.idea
 **/nb-configuration
-**/target
+target/
 **/classpath
 **/bin
 **/settings
