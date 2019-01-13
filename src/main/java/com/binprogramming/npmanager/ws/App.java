@@ -42,10 +42,10 @@ public class App extends Application {
 
         //instead let's do it manually:
         resources.add(com.binprogramming.npmanager.ws.provider.JacksonJsonProvider.class);
-        resources.add(com.binprogramming.npmanager.ws.ui.entrypoints.UsersEntryPoint.class);
-        resources.add(com.binprogramming.npmanager.ws.ui.entrypoints.MessageResource.class);
-        resources.add(com.binprogramming.npmanager.ws.ui.entrypoints.PersonResource.class);
-        //==> we could also choose packages, see below getProperties()
+//        resources.add(com.binprogramming.npmanager.ws.ui.entrypoints.UsersEntryPoint.class);
+//        resources.add(com.binprogramming.npmanager.ws.ui.entrypoints.MessageResource.class);
+//        resources.add(com.binprogramming.npmanager.ws.ui.entrypoints.PersonResource.class);
+        //==> we will instead choose packages, see below getProperties()
 
         System.out.println("REST configuration ended successfully.");
 
@@ -67,9 +67,9 @@ public class App extends Application {
         //see https://jersey.java.net/nonav/documentation/latest/user-guide.html#d0e9020 for details
         //properties.put("jersey.config.server.wadl.disableWadl", true);
 
-        //we could also use something like this instead of adding each of our resources
+        //we can also use something like this instead of adding each of our resources
         //explicitly in getClasses():
-        //properties.put("jersey.config.server.provider.packages", "com.binprogramming.npmanager.ws.entrypoints");
+        properties.put("jersey.config.server.provider.packages", "com.binprogramming.npmanager.ws.ui");
 
         return properties;
     }
