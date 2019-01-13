@@ -24,7 +24,7 @@ public interface UserDao {
      * Return all user in database
      * @return 
      */
-    UserDTO getAllUsers(); 
+    UserDTO[] getAllUsers();
     
     /**
      * Create new user

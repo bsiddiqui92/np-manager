@@ -5,6 +5,7 @@
  */
 package com.binprogramming.npmanager.ws.ui.entrypoints;
 
+import com.binprogramming.npmanager.ws.io.dao.mysql.MySqlUserDao;
 import com.binprogramming.npmanager.ws.service.UsersService;
 import com.binprogramming.npmanager.ws.service.impl.UsersServiceImpl;
 import com.binprogramming.npmanager.ws.shared.dto.UserDTO;
@@ -17,6 +18,9 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.BeanUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Bilal Siddiqui
@@ -24,11 +28,12 @@ import org.springframework.beans.BeanUtils;
 @Path("/users") 
 public class UsersEntryPoint {
 
-    @Path("/createUser")
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
-    public UserProfileRest createUser(CreateUserRequestModel requestObject) {
+    @Path("/createUser")
+    public Response createUser(CreateUserRequestModel requestObject) {
         UserProfileRest returnValue = new UserProfileRest();
 
         // Prepare UserDTO
@@ -41,18 +46,38 @@ public class UsersEntryPoint {
  
         //Prepare response
          BeanUtils.copyProperties(createdUserProfile, returnValue);
-        //Response.ok().entity(userDto).build();
-        return returnValue;
+         returnValue.setEmail(createdUserProfile.getEmail());
+         returnValue.setFirstName(createdUserProfile.getFirstName());
+         returnValue.setLastName(createdUserProfile.getLastName());
+         returnValue.setUserId(createdUserProfile.getUserId());
+        //Response.ok().entity(returnValue).build();
+        return Response.ok().entity(returnValue).build();
     }
 
+    @Path("get")
     @GET
+    @Produces({MediaType.APPLICATION_JSON})
     public Response getUsers() {
 
         String output = " This is the list of users:";
+        UserDTO[] users ;
+        MySqlUserDao mySqlUserDao = new MySqlUserDao();
+
+        users = mySqlUserDao.getAllUsers();
+        List<UserProfileRest> userProfiles = new ArrayList<>();
+
+        for(UserDTO user : users) {
+            UserProfileRest userProfileRest = new UserProfileRest();
+            userProfileRest.setEmail(user.getEmail());
+            userProfileRest.setFirstName(user.getFirstName());
+            userProfileRest.setLastName(user.getLastName());
+            userProfiles.add(userProfileRest);
+        }
+
 
         // code to retrieve the list of Users
 
-        return Response.status(200).entity(output).build();
+        return Response.status(200).entity(userProfiles).build();
 
     }
 

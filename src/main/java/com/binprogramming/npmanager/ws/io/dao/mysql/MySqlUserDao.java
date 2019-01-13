@@ -8,8 +8,11 @@ package com.binprogramming.npmanager.ws.io.dao.mysql;
 import com.binprogramming.npmanager.ws.io.dao.UserDao;
 import com.binprogramming.npmanager.ws.shared.dto.UserDTO;
 
+import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -54,8 +57,44 @@ public class MySqlUserDao extends MySqlDao implements UserDao {
         return user;
     }
     
-    public UserDTO getAllUsers() {
-        return new UserDTO(); 
+    public UserDTO[] getAllUsers() {
+
+        UserDTO user = null;
+        ArrayList<UserDTO> al = new ArrayList<>();
+
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+
+            this.conn = this.getDatabaseConnection(DATA_SOURCE_NAME);
+
+            String query = "SELECT * FROM users";
+
+            stmt = this.conn.prepareStatement(query);
+            rs = stmt.executeQuery();
+
+
+            while (rs.next())
+                     {
+                        user = new UserDTO();
+                        user.setId(rs.getInt("id"));
+                        user.setUserName(rs.getString("userName"));
+                        user.setFirstName(rs.getString("firstName"));
+                        user.setLastName(rs.getString("lastName"));
+                        user.setEmail(rs.getString("email"));
+                        user.setSalt(rs.getString("salt"));
+                        user.setEncryptedPassword(rs.getString("encryptedPassword"));
+                        al.add(user);
+                    }
+
+                } catch(Exception e){
+                    e.printStackTrace();
+                } finally{
+                    releaseRsStatementConnection(rs, stmt);
+                }
+
+        return  al.toArray(new UserDTO[0]);
     }
     
     public UserDTO createUser(UserDTO user) {

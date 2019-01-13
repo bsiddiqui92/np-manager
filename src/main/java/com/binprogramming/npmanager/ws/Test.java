@@ -11,7 +11,7 @@ public class Test {
         UserDTO userDTO = new UserDTO();
         userDTO.setUserName("HarisSiddiqui");
         userDTO.setLastName("Siddiqui");
-        userDTO.setFirstName("HAris");
+        userDTO.setFirstName("Haris");
         userDTO.setEmail("hhb450@gmail.com");
         userDTO.setSalt("salt");
         userDTO.setEncryptedPassword("paswword");

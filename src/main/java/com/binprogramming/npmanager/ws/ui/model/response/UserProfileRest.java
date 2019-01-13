@@ -5,13 +5,16 @@
  */
 package com.binprogramming.npmanager.ws.ui.model.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Bilal Siddiqui
  */
-@XmlRootElement
+//@XmlRootElement
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class UserProfileRest {
     private String UserId;
     private String firstName; 

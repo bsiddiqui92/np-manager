@@ -5,10 +5,13 @@
  */
 package com.binprogramming.npmanager.ws.ui.model.request;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
  *
  * @author Bilal Siddiqui
  */
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class CreateUserRequestModel {
 
     private String firstName;
