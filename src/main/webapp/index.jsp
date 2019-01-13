@@ -9,22 +9,22 @@
 
     <script src="/js/jquery-1.11.2.min.js"></script>
     <script>
-        var ctxPath = "/";
+        var ctxPath = "<%=request.getContextPath() %>";
         $(function(){
             $("#postPerson, #postMessage, #createUser").on("click", function(){
                 var url;
                 var data;
                 if($(this).attr("id") === "postMessage"){
-                    url = ctxPath+"api/message/post";
+                    url = ctxPath+"/api/message/post";
                     data = '{"firstName":"Michael", "lastName":"Jordan"}';
                 }
                 if($(this).attr("id") === "postPerson"){
-                    url = ctxPath+"api/person/post";
+                    url = ctxPath+"/api/person/post";
                     data = '{"firstName":"Michael", "lastName":"Jordan"}';
                 }
                 if($(this).attr("id") === "createUser"){
-                    url = ctxPath+"api/users/createUser";
-                    data = '{"firstName":"Bilal", "lastName":"Siddiqui", "email":"bos570@gmail.com", "password":"secret"}';
+                    url = ctxPath+"/api/users/createUser";
+                    data = '{"firstName":"Tahir", "lastName":"Siddiqui", "email":"tssaeed@gmail.com", "password":"secret"}';
                 }
 
                 $.ajax({
@@ -49,10 +49,10 @@
 <body>
 <h1>Pojo to Json Serialization using Jersey with Jackson for Java REST Services</h1>
 <ul>
-    <li><a href="/api/message">/api/message</a></li>
-    <li><a href="/api/message/ping">/api/message/ping</a></li>
-    <li><a href="/api/person/get">/api/person/get</a></li>
-    <li><a href="/api/users/get">/api/users/get</a></li>
+    <li><a href="<%=request.getContextPath() %>/api/message">/api/message</a></li>
+    <li><a href="<%=request.getContextPath() %>/api/message/ping">/api/message/ping</a></li>
+    <li><a href="<%=request.getContextPath() %>/api/person/get">/api/person/get</a></li>
+    <li><a href="<%=request.getContextPath() %>/api/users/get">/api/users/get</a></li>
     <li><button id="postPerson">Post Person</button></li>
     <li><button id="postMessage">Post Message</button></li>
     <li><button id="createUser">Create User</button></li>
