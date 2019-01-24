@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="" docBase="ROOT" debug="5" reloadable="true" crossContext="true">
+    <Resource name="jdbc/npm"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="npm"
+              password="secretpwd"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/npm"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+              maxTotal="100"
+              maxActive="100"
+              maxIdle="10"
+              maxWait="10000"
+              testWhileIdle="true"
+              testOnBorrow="true"
+              validationQuery="select 1"
+              validationInterval="30000"
+              logValidationErrors="true"
+              removeAbandonedOnBorrow="false"
+              removeAbandonedOnMaintenance="false"
+              removeAbandonedTimeout="300"
+              removeAbandoned="true"
+              logAbandoned="true"
+              minEvictableIdleTimeMillis="600000"
+              timeBetweenEvictionRunsMillis="300000"
+              numTestsPerEvictionRun="-1"
+              closeMethod="close"/>
+
+</Context>
