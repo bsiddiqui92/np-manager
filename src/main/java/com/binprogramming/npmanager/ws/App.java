@@ -27,7 +27,4 @@ public class App extends Application {
 //        classes.add(JacksonJsonProvider.class);
 //        return classes;
 //    }
-
-
-
 }

@@ -4,20 +4,6 @@
 
 
 <web-app>
-  <display-name>npm-manager</display-name>
-  <servlet>
-    <servlet-name>rest-test</servlet-name>
-    <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-    <init-param>
-      <param-name>com.sun.jersey.config.property.packages</param-name>
-      <param-value>com.binprogramming.npmanager.ws.App</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name> rest-test</servlet-name>
-    <url-pattern>/*</url-pattern>
-  </servlet-mapping>
 
 </web-app>
 

@@ -6,6 +6,7 @@
 package com.binprogramming.npmanager.ws.shared.dto;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 /**
  *
@@ -18,10 +19,9 @@ public class UserDTO implements Serializable {
     private String firstName; 
     private String lastName; 
     private String email; 
-    private String password; 
-    private String salt; 
-    private String encryptedPassword;
     private String userId;
+    private int permissionId;
+    private HashMap permissions;
     
     /**
      * @return the serialVerionUID
@@ -44,13 +44,17 @@ public class UserDTO implements Serializable {
         this.id = id;
     }
 
+    /**
+     * @return userName
+     */
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    /**
+     * @param set userName
+     */
+    public void setUserName(String userName) { this.userName = userName; }
 
     /**
      * @return the firstName
@@ -92,48 +96,6 @@ public class UserDTO implements Serializable {
      */
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    /**
-     * @return the salt
-     */
-    public String getSalt() {
-        return salt;
-    }
-
-    /**
-     * @param salt the salt to set
-     */
-    public void setSalt(String salt) {
-        this.salt = salt;
-    }
-
-    /**
-     * @return the encryptedPassword
-     */
-    public String getEncryptedPassword() {
-        return encryptedPassword;
-    }
-
-    /**
-     * @param encryptedPassword the encryptedPassword to set
-     */
-    public void setEncryptedPassword(String encryptedPassword) {
-        this.encryptedPassword = encryptedPassword;
     }
 
     /**

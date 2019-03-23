@@ -14,8 +14,7 @@ public class CreateUserRequestModel {
     private String firstName;
     private String lastName; 
     private String email;
-    private String password; 
-    
+
     /**
      * @return the firstName
      */
@@ -56,20 +55,6 @@ public class CreateUserRequestModel {
      */
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    /**
-     * @return the password
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
     }
    
 }

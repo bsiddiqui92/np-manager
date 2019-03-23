@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.binprogramming.npmanager.ws.ui.entrypoints;
 
 import com.binprogramming.npmanager.ws.service.UsersService;
@@ -17,14 +12,25 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.beans.BeanUtils;
 
-/**
- *
- * @author Bilal Siddiqui
- */
 @Path("/users") 
 public class UsersEntryPoint {
 
-    @Path("/createUser")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUsers() {
+
+        String output = " This is the list of users:";
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserName("HarisSiddiqui");
+        userDTO.setLastName("Siddiqui");
+        userDTO.setFirstName("HAris");
+        userDTO.setEmail("hhb450@gmail.com");
+        userDTO.setUserId("1");
+        // code to retrieve the list of Users
+
+        return Response.status(200).entity(userDTO).build();
+    }
+    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces({ MediaType.APPLICATION_JSON,  MediaType.APPLICATION_XML} )
@@ -44,18 +50,6 @@ public class UsersEntryPoint {
         //Response.ok().entity(userDto).build();
         return returnValue;
     }
-
-    @GET
-    public Response getUsers() {
-
-        String output = " This is the list of users:";
-
-        // code to retrieve the list of Users
-
-        return Response.status(200).entity(output).build();
-
-    }
-
 }
 
 
