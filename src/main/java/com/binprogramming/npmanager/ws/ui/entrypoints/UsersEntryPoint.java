@@ -1,7 +1,8 @@
 package com.binprogramming.npmanager.ws.ui.entrypoints;
 
+import com.binprogramming.npmanager.ws.service.UserServiceImpl;
 import com.binprogramming.npmanager.ws.service.UsersService;
-import com.binprogramming.npmanager.ws.service.impl.UsersServiceImpl;
+import com.binprogramming.npmanager.ws.service.UserServiceImpl;
 import com.binprogramming.npmanager.ws.shared.dto.UserDTO;
 import com.binprogramming.npmanager.ws.ui.model.request.CreateUserRequestModel;
 import com.binprogramming.npmanager.ws.ui.model.response.UserProfileRest;
@@ -19,16 +20,23 @@ public class UsersEntryPoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getUsers() {
 
-        String output = " This is the list of users:";
-        UserDTO userDTO = new UserDTO();
-        userDTO.setUserName("HarisSiddiqui");
-        userDTO.setLastName("Siddiqui");
-        userDTO.setFirstName("HAris");
-        userDTO.setEmail("hhb450@gmail.com");
-        userDTO.setUserId("1");
-        // code to retrieve the list of Users
+       String output = " This is the list of users:";
+//
+//        UserDTO response = new UserServiceImpl();
+//        // code to retrieve the list of Users
 
-        return Response.status(200).entity(userDTO).build();
+        return Response.status(200).entity(output).build();
+    }
+
+    @GET
+    @Path("/{field}/{value}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUser(@PathParam("field") String field, @PathParam("value") String value) {
+
+        UserDTO response = new UserServiceImpl().getUser(field, value);
+
+        return Response.status(200).entity(response).build();
+
     }
     
     @POST
@@ -42,7 +50,7 @@ public class UsersEntryPoint {
         BeanUtils.copyProperties(requestObject, userDto);
         
         // Create new user 
-        UsersService userService = new UsersServiceImpl();
+        UsersService userService = new UserServiceImpl();
         UserDTO createdUserProfile = userService.createUser(userDto);
  
         //Prepare response

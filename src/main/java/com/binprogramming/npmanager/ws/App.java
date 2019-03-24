@@ -5,15 +5,8 @@
  */
 package com.binprogramming.npmanager.ws;
 
-import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
-
-import javax.inject.Singleton;
 import javax.ws.rs.ApplicationPath;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
 import javax.ws.rs.core.Application;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  *

@@ -14,11 +14,12 @@ import com.binprogramming.npmanager.ws.shared.dto.UserDTO;
 public interface User {
     
     /**
-     * Return users by requested username
-     * @param String userName
-     * @return UserDTO 
+     * Return users by requested field value pair
+     * @param String field
+     * @param String value
+     * @return UserDTO
      */
-    UserDTO getUserByName(String userName); 
+    UserDTO getUser(String field, String value);
     
     /**
      * Return all user in database
@@ -30,5 +31,5 @@ public interface User {
      * Create new user
      * @return
      */
-    UserDTO createUser(UserDTO user);
+    UserDTO saveUser(UserDTO user);
 }

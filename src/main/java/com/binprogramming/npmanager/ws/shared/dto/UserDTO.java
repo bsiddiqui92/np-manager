@@ -19,8 +19,11 @@ public class UserDTO implements Serializable {
     private String firstName; 
     private String lastName; 
     private String email; 
-    private String userId;
-    private int permissionId;
+    private String phone;
+    private String address;
+    private String state;
+    private String city;
+    private String zip;
     private HashMap permissions;
     
     /**
@@ -29,86 +32,93 @@ public class UserDTO implements Serializable {
     public static long getSerialVerionUID() {
         return serialVerionUID;
     }
-    
-    /**
-     * @return the id
-     */
+
+
     public long getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(long id) {
         this.id = id;
     }
 
-    /**
-     * @return userName
-     */
     public String getUserName() {
         return userName;
     }
 
-    /**
-     * @param set userName
-     */
-    public void setUserName(String userName) { this.userName = userName; }
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-    /**
-     * @return the firstName
-     */
     public String getFirstName() {
         return firstName;
     }
 
-    /**
-     * @param firstName the firstName to set
-     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    /**
-     * @return the lastName
-     */
     public String getLastName() {
         return lastName;
     }
 
-    /**
-     * @param lastName the lastName to set
-     */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    /**
-     * @return the email
-     */
     public String getEmail() {
         return email;
     }
 
-    /**
-     * @param email the email to set
-     */
     public void setEmail(String email) {
         this.email = email;
     }
 
-    /**
-     * @return the userId
-     */
-    public String getUserId() {
-        return userId;
+    public String getPhone() {
+        return phone;
     }
 
-    /**
-     * @param userId the userId to set
-     */
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
+    public HashMap getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(HashMap permissions) {
+        this.permissions = permissions;
     }
 }
