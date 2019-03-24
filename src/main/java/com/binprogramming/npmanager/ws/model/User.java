@@ -69,7 +69,6 @@ public class User {
 
     /**
      * Return hash map containing all user data.
-     *
      * @return HashMap user
      */
     public Map getUser() {

@@ -8,23 +8,50 @@ package com.binprogramming.npmanager.ws.dao.mysql;
 import com.binprogramming.npmanager.ws.dao.User;
 import com.binprogramming.npmanager.ws.shared.dto.UserDTO;
 
-import java.sql.Connection;
+import java.sql.*;
 
 /**
- *
+ * MysqlUserDAO DAO for user related data.
  * @author Bilal Siddiqui
  */
 public class MySqlUserDAO implements User {
 
-    Connection conn = null;
+    Connection conn;
 
-    MySqlUserDAO (Connection conn) {
-        this.conn = conn;
-    }
+    MySqlUserDAO (Connection conn) { this.conn = conn; }
 
-    @Override
-    public UserDTO getUserByName(String userName) {
-        return null;
+    /**
+     * Retrieve user data by username.
+     * @param  field
+     * @return UserDTO
+     */
+    public UserDTO getUser(String field, String value) {
+
+        UserDTO returnValue = new UserDTO();
+
+        try {
+            // Query data from user table
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM user WHERE " + field + "  = ?");
+            stmt.setString(1, value);
+
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()) {
+                returnValue.setId( rs.getInt("id") );
+                returnValue.setFirstName( rs.getString("first_name") );
+                returnValue.setLastName( rs.getString("last_name") );
+                returnValue.setEmail( rs.getString("email") );
+                returnValue.setPhone( rs.getString("phone") );
+                returnValue.setAddress( rs.getString("address") );
+                returnValue.setState( rs.getString("state") );
+                returnValue.setCity( rs.getString("city") );
+                returnValue.setZip( rs.getString("zip") );
+            }
+
+         } catch (SQLException exception) {
+            System.out.println("Error establisghing db connection " + exception);
+        }
+
+        return returnValue;
     }
 
     @Override
@@ -33,7 +60,7 @@ public class MySqlUserDAO implements User {
     }
 
     @Override
-    public UserDTO createUser(UserDTO user) {
+    public UserDTO saveUser(UserDTO user) {
         return null;
     }
 }

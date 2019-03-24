@@ -9,7 +9,7 @@ public class MysqlDAO implements DAO {
     /**
      * Connection conn connection object for mysql.
      */
-    private Connection conn = null;
+    private Connection conn;
 
     private MySqlUserDAO userDAO = null;
     private MysqlVolunteerDAO volunteerDAO = null;
