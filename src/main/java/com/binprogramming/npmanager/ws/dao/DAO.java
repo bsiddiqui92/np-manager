@@ -18,4 +18,6 @@ public interface DAO {
      * @return OrganizationDAO
      */
     Organization organization();
+
+    public Organization Organization();
 }

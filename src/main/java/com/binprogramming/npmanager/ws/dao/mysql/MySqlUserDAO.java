@@ -23,6 +23,7 @@ public class MySqlUserDAO implements User {
     /**
      * Retrieve user data by username.
      * @param  field
+     * @param value
      * @return UserDTO
      */
     public UserDTO getUser(String field, String value) {
