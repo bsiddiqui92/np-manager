@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.binprogramming.npmanager.ws.service.impl;
+package com.binprogramming.npmanager.ws.service;
 
 import com.binprogramming.npmanager.ws.shared.dto.OrganizationDTO;
 

@@ -47,7 +47,7 @@ public class MysqlDAO implements DAO {
      */
     public Organization organization() {
         if (this.organizationDao == null)
-            this.organizationDao = new MysqlOrganizationDao();
+            this.organizationDao = new MysqlOrganizationDao(this.conn);
         return this.organizationDao;
     }
 

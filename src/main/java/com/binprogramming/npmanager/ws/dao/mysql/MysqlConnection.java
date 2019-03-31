@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class MysqlConnection implements DBConnection {
 
-    public static final String URL = "jdbc:mysql://localhost:3306/npmanager";
+    public static final String URL = "jdbc:mysql://192.168.99.100:3308/npmanager";
     public static final String USER = "root";
     public static final String PASS = "root";
 

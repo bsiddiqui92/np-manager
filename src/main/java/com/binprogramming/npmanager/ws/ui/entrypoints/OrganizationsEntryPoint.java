@@ -21,27 +21,20 @@ import org.springframework.beans.BeanUtils;
 @Path("/organization")
 public class OrganizationsEntryPoint {
     
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response getOrganization() {
-
-       String output = " This is the list of organizations:";
-
-        return Response.status(200).entity(output).build();
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Response getOrganization() {
+//
+//       String output = " This is the list of organizations:";
+//
+//        return Response.status(200).entity(output).build();
+//    }
     
     @GET
     @Path("/{field}/{value}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getOrganization(@PathParam("field") String field, @PathParam("value") String value){
-        OrganizationDTO response = null;
-        try{
-        response = new OrganizationServiceImpl().getOrganization(field, value);
-        
-        }
-        catch(Exception ex){
-            System.out.println(ex);
-        }
+        OrganizationDTO response = new OrganizationServiceImpl().getOrganization(field, value);
         return Response.status(200).entity(response).build();
         
     }

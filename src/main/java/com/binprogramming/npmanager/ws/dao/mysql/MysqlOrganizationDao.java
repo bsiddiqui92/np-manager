@@ -12,11 +12,6 @@ public class MysqlOrganizationDao implements Organization {
     
     MysqlOrganizationDao (Connection conn) { this.conn = conn; }
 
-    MysqlOrganizationDao() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
     public OrganizationDTO getOrganization(String field, String value){
         
         OrganizationDTO returnValue = new OrganizationDTO();
@@ -41,7 +36,6 @@ public class MysqlOrganizationDao implements Organization {
         return (OrganizationDTO) returnValue;
     }
 
-    @Override
     public OrganizationDTO saveOrganization(OrganizationDTO organization) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

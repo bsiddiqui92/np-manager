@@ -5,6 +5,7 @@
  */
 package com.binprogramming.npmanager.ws.service.impl;
 
+import com.binprogramming.npmanager.ws.service.OrganizationService;
 import com.binprogramming.npmanager.ws.dao.DAO;
 import com.binprogramming.npmanager.ws.dao.DAOFactory;
 import com.binprogramming.npmanager.ws.dao.Organization;
@@ -15,7 +16,7 @@ import com.binprogramming.npmanager.ws.shared.dto.OrganizationDTO;
  *
  * @author ahmed
  */
-public class OrganizationServiceImpl implements OrganizationService{
+public class OrganizationServiceImpl implements OrganizationService {
     
     private static int MYSQL_DAO = 1;
     
@@ -25,7 +26,7 @@ public class OrganizationServiceImpl implements OrganizationService{
         DAOFactory daoFactory = new DAOFactory();
         DAO dao = daoFactory.getDAOFactory(this.MYSQL_DAO);
         
-        this.OrganizationDAO = dao.Organization();
+        this.OrganizationDAO = dao.organization();
     }
     
     public OrganizationDTO getOrganization(String field, String value){
