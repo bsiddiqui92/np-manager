@@ -25,7 +25,7 @@ public class MysqlDAO implements DAO {
      * Return instance of MysqlUserDao.
      * @return MysqlUserDAO
      */
-    public User user() {
+    public UserDAO user() {
         if (this.userDAO == null)
             this.userDAO = new MySqlUserDAO(this.conn);
         return this.userDAO;
@@ -35,9 +35,9 @@ public class MysqlDAO implements DAO {
      * Return instance of MysqlVolunteerDAO.
      * @return MysqlVolunteerDAO
      */
-    public Volunteer volunteer() {
+    public VolunteerDAO volunteer() {
         if (this.volunteerDAO == null)
-            this.volunteerDAO = new MysqlVolunteerDAO();
+            this.volunteerDAO = new MysqlVolunteerDAO(this.conn);
         return this.volunteerDAO;
     }
 
@@ -45,7 +45,7 @@ public class MysqlDAO implements DAO {
      * Return instance of MysqlOrganizationDAO.
      * @return MysqlOrganizationDAO
      */
-    public Organization organization() {
+    public OrganizationDAO organization() {
         if (this.organizationDao == null)
             this.organizationDao = new MysqlOrganizationDao();
         return this.organizationDao;

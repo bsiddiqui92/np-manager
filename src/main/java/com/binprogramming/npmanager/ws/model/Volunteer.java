@@ -1,26 +1,44 @@
 package com.binprogramming.npmanager.ws.model;
 
-import java.util.*;
-
 public class Volunteer {
 
     /**
-     * Member variables for user class
+     * Member variables for volunteer class.
      */
+    private Integer id;
+    private Integer organizationId;
     private String firstName;
     private String lastName;
     private String email;
-    private String address;
     private String zip;
+    private String preferredContact;
+    private String interestedIn;
+
 
     /**
-     * Constant declaration for user members
+     * Constant declaration for Volunteer field names.
      */
-    private static final String FIRST_NAME = "firstName";
-    private static final String LAST_NAME = "lastName";
-    private static final String EMAIL = "email";
-    private static final String ADDRESS = "address";
-    private static final String ZIP = "zip";
+    public static final String ORGANIZATION_ID = "organization_id";
+    public static final String FIRST_NAME = "first_name";
+    public static final String LAST_NAME = "last_name";
+    public static final String EMAIL = "email";
+    public static final String ZIP = "zip";
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getOrganizationId() {
+        return this.organizationId;
+    }
+
+    public void setOrganizationId(Integer id) {
+        this.organizationId = id;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -46,14 +64,6 @@ public class Volunteer {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getZip() {
         return zip;
     }
@@ -62,22 +72,19 @@ public class Volunteer {
         this.zip = zip;
     }
 
-    /**
-     * Return hash map containing all user data.
-     *
-     * @return HashMap volunteer
-     */
-    public Map getVolunteer() {
-
-        Map<String, String> volunteer = new HashMap<>();
-
-        volunteer.put(FIRST_NAME, this.getFirstName());
-        volunteer.put(LAST_NAME, this.getLastName());
-        volunteer.put(EMAIL, this.getEmail());
-        volunteer.put(ADDRESS, this.getAddress());
-        volunteer.put(ZIP, this.getZip());
-
-        return volunteer;
+    public String getPreferredContact() {
+        return preferredContact;
     }
 
+    public void setPreferredContact(String preferredContact) {
+        this.preferredContact = preferredContact;
+    }
+
+    public String getInterestedIn() {
+        return interestedIn;
+    }
+
+    public void setInterestedIn(String interestedIn) {
+        this.interestedIn = interestedIn;
+    }
 }

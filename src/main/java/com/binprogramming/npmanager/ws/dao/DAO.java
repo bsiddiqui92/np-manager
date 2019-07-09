@@ -6,16 +6,16 @@ public interface DAO {
     /** Return Instance of user DAO.
      * @return UserDAO
      */
-    User user();
+    UserDAO user();
 
-    /** Return Instance of user DAO.
-     * @return UserDAO
+    /** Return Instance of volunteer DAO.
+     * @return VolunteerDao
      */
-    Volunteer volunteer();
+    VolunteerDAO volunteer();
 
     /**
      * Return Instance of organization DAO.
      * @return OrganizationDAO
      */
-    Organization organization();
+    OrganizationDAO organization();
 }

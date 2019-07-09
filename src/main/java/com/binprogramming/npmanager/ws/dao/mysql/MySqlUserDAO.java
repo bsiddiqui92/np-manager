@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.binprogramming.npmanager.ws.dao.mysql;
 
-import com.binprogramming.npmanager.ws.dao.User;
+import com.binprogramming.npmanager.ws.dao.UserDAO;
+import com.binprogramming.npmanager.ws.model.User;
 import com.binprogramming.npmanager.ws.shared.dto.UserDTO;
 
 import java.sql.*;
@@ -14,7 +10,7 @@ import java.sql.*;
  * MysqlUserDAO DAO for user related data.
  * @author Bilal Siddiqui
  */
-public class MySqlUserDAO implements User {
+public class MySqlUserDAO implements UserDAO {
 
     Connection conn;
 
@@ -27,6 +23,7 @@ public class MySqlUserDAO implements User {
      */
     public UserDTO getUser(String field, String value) {
 
+        User user = new User();
         UserDTO returnValue = new UserDTO();
 
         try {
@@ -36,17 +33,18 @@ public class MySqlUserDAO implements User {
 
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {
-                returnValue.setId( rs.getInt("id") );
-                returnValue.setFirstName( rs.getString("first_name") );
-                returnValue.setLastName( rs.getString("last_name") );
-                returnValue.setEmail( rs.getString("email") );
-                returnValue.setPhone( rs.getString("phone") );
-                returnValue.setAddress( rs.getString("address") );
-                returnValue.setState( rs.getString("state") );
-                returnValue.setCity( rs.getString("city") );
-                returnValue.setZip( rs.getString("zip") );
+                user.setId( rs.getInt("id") );
+                user.setFirstName( rs.getString("first_name") );
+                user.setLastName( rs.getString("last_name") );
+                user.setEmail( rs.getString("email") );
+                user.setPhone( rs.getString("phone") );
+                user.setAddress( rs.getString("address") );
+                user.setState( rs.getString("state") );
+                user.setCity( rs.getString("city") );
+                user.setZip( rs.getString("zip") );
             }
 
+            returnValue.setUser(user);
          } catch (SQLException exception) {
             System.out.println("Error establisghing db connection " + exception);
         }

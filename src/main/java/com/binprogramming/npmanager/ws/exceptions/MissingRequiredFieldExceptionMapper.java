@@ -5,9 +5,8 @@
  */
 package com.binprogramming.npmanager.ws.exceptions;
 
-import com.binprogramming.npmanager.ws.exceptions.MissingRequiredFieldException;
-import com.binprogramming.npmanager.ws.ui.model.response.ErrorMessage;
-import com.binprogramming.npmanager.ws.ui.model.response.ErrorMessages;
+import com.binprogramming.npmanager.ws.response.ErrorMessage;
+import com.binprogramming.npmanager.ws.response.ErrorMessages;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
